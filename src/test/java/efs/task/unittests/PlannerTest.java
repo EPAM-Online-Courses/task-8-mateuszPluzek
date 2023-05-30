@@ -28,10 +28,10 @@ public class PlannerTest {
     @Test
     void shouldReturnCorrectDailyIntake_whenGivenTestUser() {
         DailyIntake calculatedIntake = plan.calculateDailyIntake(TestConstants.TEST_USER);
-        assertTrue(calculatedIntake.getCalories() == TestConstants.TEST_USER_DAILY_INTAKE.getCalories());
-        assertTrue(calculatedIntake.getProtein() == TestConstants.TEST_USER_DAILY_INTAKE.getProtein());
-        assertTrue(calculatedIntake.getFat() == TestConstants.TEST_USER_DAILY_INTAKE.getFat());
-        assertTrue(calculatedIntake.getCarbohydrate() == TestConstants.TEST_USER_DAILY_INTAKE.getCarbohydrate());
+        assertTrue(calculatedIntake.getCalories() == TestConstants.TEST_USER_DAILY_INTAKE.getCalories() &&
+        calculatedIntake.getProtein() == TestConstants.TEST_USER_DAILY_INTAKE.getProtein() &&
+        calculatedIntake.getFat() == TestConstants.TEST_USER_DAILY_INTAKE.getFat() &&
+        calculatedIntake.getCarbohydrate() == TestConstants.TEST_USER_DAILY_INTAKE.getCarbohydrate());
     }
 
 
