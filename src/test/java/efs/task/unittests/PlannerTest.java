@@ -6,7 +6,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PlannerTest {
     public Planner plan;
@@ -21,7 +20,7 @@ public class PlannerTest {
 
         int calculatedValue = plan.calculateDailyCaloriesDemand(user, activity);
 
-        assertTrue(TestConstants.CALORIES_ON_ACTIVITY_LEVEL.get(activity) == calculatedValue);
+        assertEquals((int) TestConstants.CALORIES_ON_ACTIVITY_LEVEL.get(activity), calculatedValue);
     }
     @Test
     void shouldReturnCorrectDailyIntake_whenGivenTestUser() {
