@@ -6,6 +6,10 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class FitCalculatorTest {
@@ -71,6 +75,38 @@ class FitCalculatorTest {
         boolean recommended = FitCalculator.isBMICorrect(weight, height);
         assertFalse(recommended);
     }
+    //
+
+    @Test
+    void shouldReturnWorstUser_whenGivenUserList() {
+        List<User> testList = TestConstants.TEST_USERS_LIST;
+
+        User worstUser = FitCalculator.findUserWithTheWorstBMI(testList);
+
+        assertEquals(worstUser.getWeight(),97.3);
+        assertEquals(worstUser.getHeight(), 1.79);
+    }
+
+    @Test
+    void shouldReturnNull_whenGivenEmptyUsersList() {
+        List<User> testList = new ArrayList<>();
+
+        User worstUser = FitCalculator.findUserWithTheWorstBMI(testList);
+
+        assertNull(worstUser);
+    }
+
+    @Test
+    void shouldReturnCorrectScore_whenGivenUsersList(){
+        List<User> testList = TestConstants.TEST_USERS_LIST;
+
+        double[] returnedScore = FitCalculator.calculateBMIScore(testList);
+
+        for(int i = 0; i < returnedScore.length;i++) {
+            assertTrue(returnedScore[i] ==  TestConstants.TEST_USERS_BMI_SCORE[i]);
+        }
+    }
+
 
 
 }

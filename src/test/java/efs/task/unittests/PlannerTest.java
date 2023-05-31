@@ -32,7 +32,6 @@ public class PlannerTest {
         assertEquals(calculatedIntake.getProtein(), expectedIntake.getProtein());
         assertEquals(calculatedIntake.getFat(), expectedIntake.getFat());
         assertEquals(calculatedIntake.getCarbohydrate(), expectedIntake.getCarbohydrate());
-        //
     }
 
 
